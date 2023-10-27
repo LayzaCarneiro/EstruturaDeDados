@@ -1,0 +1,14 @@
+Uma pilha pode ser implementada utilizando duas filas da seguinte forma:
+
+Para a operação PUSH, o elemento é inserido na fila 1.
+Para a operação POP, os elementos da fila 1 são removidos e inseridos na fila 2 até que reste apenas um elemento na fila 1, que é removido e retornado como o elemento desempilhado. Em seguida, os elementos da fila 2 são movidos de volta para a fila 1.
+Essa implementação garante que o elemento mais recentemente adicionado à pilha estará sempre no final da fila 1, o que o torna o primeiro elemento a ser removido na operação POP, simulando assim a operação de uma pilha.
+
+O tempo de execução das operações PUSH e POP nessa implementação depende do número de elementos já presentes nas filas. Se a fila 1 estiver vazia, a operação PUSH será executada em tempo constante O(1), pois o elemento será simplesmente adicionado na fila 1. Se a fila 1 já possuir n elementos, a operação PUSH precisará inserir o elemento na fila 2 e depois mover todos os elementos da fila 1 para a fila 2, resultando em um tempo de execução de O(n).
+
+A operação POP sempre precisará mover todos os elementos da fila 1 para a fila 2, o que leva tempo O(n). Além disso, será necessário remover e retornar o último elemento da fila 2, o que é uma operação de tempo constante O(1). Portanto, o tempo de execução total da operação POP é O(n).
+
+Em resumo, essa implementação utiliza duas filas e garante uma operação PUSH de tempo constante quando a fila 1 estiver vazia, mas uma operação POP de tempo O(n) em qualquer caso. Por isso, é mais adequada para aplicações onde a operação POP é menos frequente que a operação PUSH, ou onde o tamanho da pilha é relativamente pequeno.
+
+CÓDIGO
+O tempo de execução das operações de empilhar (PUSH) e desempilhar (POP) é O(N), onde N é o número de elementos na pilha, já que sempre será necessário transferir todos os elementos da fila 1 para a fila 2 ou vice-versa. No entanto, se a maioria das operações forem de empilhamento, o tempo de execução pode ser amortizado. Além disso, a vantagem dessa implementação é que ela não desperdiça espaço, já que as duas filas são reutilizadas a cada operação de PUSH e POP.
